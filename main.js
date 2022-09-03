@@ -48,12 +48,12 @@ function render(){
     ctx.clearRect(0,0, canvas.width, canvas.width);
 
     for(let i = 0; i < num; i++){
-      let radian = i / 180 * Math.PI; //ラジアンに変換 i番目の角度の計算
+      let radian = (angle * i) / 180 * Math.PI; //ラジアンに変換 i番目の角度の計算
   
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i,
-        (size.height * 0.5) + ((size.height * 0.5) * (Math.sin(radian * angle) * 0.3)),
+        (size.height * 0.5) + ((size.height * 0.5) * (Math.sin(radian) * 0.5)),
         3,
         size.height
       );
