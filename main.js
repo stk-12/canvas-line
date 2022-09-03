@@ -3,7 +3,7 @@ import './style.css'
 let canvas, ctx;
 
 let size;
-let interval = 10; // 間隔
+let interval = 20; // 間隔
 let num;
 
 function init(){
@@ -54,6 +54,18 @@ function render(){
       ctx.fillRect(
         interval * i,
         (size.height * 0.5) + ((size.height * 0.5) * ((Math.sin(radian * 3) + Math.cos(radian)) * 0.1)),
+        3,
+        size.height
+      );
+    }
+
+    for(let i = 0; i < num; i++){
+      let radian = (angle + i) / 180 * Math.PI; //ラジアンに変換 i番目の角度の計算
+  
+      // fillRect(x, y, width, height)
+      ctx.fillRect(
+        interval * i - interval * 0.5,
+        (size.height * 0.5) + ((size.height * 0.5) * ((Math.sin(radian * 2) + Math.cos(radian * 3)) * 0.15)),
         3,
         size.height
       );
