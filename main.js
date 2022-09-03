@@ -47,12 +47,13 @@ function render(){
     // 経過時間
     let passedTime = new Date().getTime();
 
-    let distance = (Math.sqrt(Math.pow(mouse.x - size.width / 2, 2))) / (size.width * 0.5);
+    // let distance = (Math.sqrt(Math.pow(mouse.x - size.width / 2, 2))) / (size.width * 0.5);
+    let distanceX = (Math.sqrt(Math.pow(mouse.x - size.width / 2, 2))) / (size.width * 0.5);
+    let distanceY = (Math.sqrt(Math.pow(mouse.y - size.height / 2, 2))) / (size.height * 0.5);
 
-    // console.log(distance);
 
     // let par = ((passedTime % 1000) / 999); // 1秒ごとに0〜1を繰り返す
-    let angle = passedTime / 20 + (distance * 100); // １秒間に0.02増加する
+    let angle = passedTime / 20 + (distanceX * 100); // １秒間に0.02増加する
 
     
 
@@ -66,9 +67,9 @@ function render(){
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i,
-        (size.height * (0.5 - distance / 2)) + ((size.height * 0.5) * ((Math.sin(radian * 3) + Math.cos(radian)) * 0.1)),
-        5 * distance + 3,
-        size.height * distance / 2 + 3
+        (size.height * (0.5 - distanceY / 2)) + ((size.height * 0.5) * ((Math.sin(radian * 3) + Math.cos(radian)) * 0.1)),
+        5 * distanceX + 3,
+        size.height * distanceY / 2 + 3
       );
     }
 
@@ -78,9 +79,9 @@ function render(){
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i - interval * 0.33333,
-        (size.height * 0.33333 - (distance / 2)) + ((size.height * 0.5) * ((Math.sin(radian * 2) + Math.cos(radian * 3)) * 0.15)),
-        5 * distance + 3,
-        size.height * distance / 2 + 3
+        (size.height * 0.33333 - (distanceY / 2)) + ((size.height * 0.5) * ((Math.sin(radian * 2) + Math.cos(radian * 3)) * 0.15)),
+        5 * distanceX + 3,
+        size.height * distanceY / 2 + 3
       );
     }
 
@@ -90,9 +91,9 @@ function render(){
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i - interval * 0.66666,
-        (size.height * 0.5 - (distance / 2)) + ((size.height * 0.5) * ((Math.sin(radian) + Math.sin(radian * 3)) * 0.2)),
-        5 * distance + 3,
-        size.height * distance / 2 + 3
+        (size.height * 0.5 - (distanceY / 2)) + ((size.height * 0.5) * ((Math.sin(radian) + Math.sin(radian * 3)) * 0.2)),
+        5 * distanceX + 3,
+        size.height * distanceY / 2 + 3
       );
     }
     
