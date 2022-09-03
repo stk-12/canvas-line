@@ -2,31 +2,35 @@ import './style.css'
 
 let canvas, ctx;
 
-let size = {
-  width: window.innerWidth,
-  height: window.innerHeight
-}
+let size;
 let interval = 10; // 間隔
-let num = Math.floor(size.width / interval) + 1; // 横に並ぶ数
+let num;
 
 function init(){
   canvas = document.getElementById('canvas');
   ctx = canvas.getContext('2d');
+  
+  size = {
+    width: window.innerWidth,
+    height: window.innerHeight
+  }
+  num = Math.floor(size.width / interval) + 1; // 横に並ぶ数
 
   canvas.width = size.width;
   canvas.height = size.height;
 }
 
 function render(){
+  ctx.fillStyle = "#FFAB40";
   
   for(let i = 0; i < num; i++){
     let radian = i / 180 * Math.PI; //ラジアンに変換 i番目の角度の計算
 
-     //fillRect(x, y, width, height)
+    // fillRect(x, y, width, height)
     ctx.fillRect(
       interval * i,
-      (size.height * 0.5) + (size.height * 0.5) * Math.sin(radian),
-      1,
+      (size.height * 0.5) + ((size.height * 0.5) * (Math.sin(radian * 5) * 0.1)),
+      3,
       size.height
     );
   }
@@ -52,10 +56,6 @@ window.addEventListener('load', ()=>{
 });
 
 window.addEventListener('resize', ()=>{
-  size.width = window.innerWidth;
-  size.height = window.innerHeight;
-  
-  canvas.width = size.width;
-  canvas.height = size.height;
+  init();
   render();
 });
