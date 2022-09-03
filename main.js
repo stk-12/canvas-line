@@ -40,7 +40,6 @@ function render(){
     // 経過時間
     let passedTime = new Date().getTime();
 
-    // let par = ((passedTime % 1000) / 999); // 1秒ごとに0〜1を繰り返す
     let angle = passedTime / 20; // １秒間に0.02増加する
 
     
@@ -53,9 +52,9 @@ function render(){
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i,
-        (size.height * 0.5) + ((size.height * 0.5) * (Math.sin(radian * 3) * 0.1)),
+        (size.height * 0.25) + ((size.height * 0.5) * (Math.sin(radian * 3) * 0.1)),
         3,
-        size.height
+        size.height * 0.5
       );
     }
     
