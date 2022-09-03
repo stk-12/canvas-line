@@ -4,7 +4,7 @@ let canvas, ctx;
 
 let size;
 let interval = 20; // 間隔
-let num;
+let num; // 横に並ぶ数
 
 function init(){
   canvas = document.getElementById('canvas');
@@ -60,12 +60,24 @@ function render(){
     }
 
     for(let i = 0; i < num + 1; i++){
-      let radian = (angle + i) / 180 * Math.PI; //ラジアンに変換 i番目の角度の計算
+      let radian = (angle + i) / 180 * Math.PI;
   
       // fillRect(x, y, width, height)
       ctx.fillRect(
-        interval * i - interval * 0.5,
+        interval * i - interval * 0.33333,
         (size.height * 0.5) + ((size.height * 0.5) * ((Math.sin(radian * 2) + Math.cos(radian * 3)) * 0.15)),
+        3,
+        size.height
+      );
+    }
+
+    for(let i = 0; i < num + 1; i++){
+      let radian = (angle + i) / 180 * Math.PI;
+  
+      // fillRect(x, y, width, height)
+      ctx.fillRect(
+        interval * i - interval * 0.66666,
+        (size.height * 0.5) + ((size.height * 0.5) * ((Math.sin(radian) + Math.sin(radian * 3)) * 0.2)),
         3,
         size.height
       );
