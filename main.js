@@ -26,13 +26,21 @@ function render(){
   for(let i = 0; i < num; i++){
     let radian = i / 180 * Math.PI; //ラジアンに変換 i番目の角度の計算
 
-    // fillRect(x, y, width, height)
+    // start base
     ctx.fillRect(
       interval * i,
-      (size.height * 0.5) + ((size.height * 0.5) * (Math.sin(radian * 5) * 0.1)),
+      size.height * 0.5,
       3,
-      size.height
+      size.height * 0.5
     );
+
+    // fillRect(x, y, width, height)
+    // ctx.fillRect(
+    //   interval * i,
+    //   (size.height * 0.5) + ((size.height * 0.5) * (Math.sin(radian * 5) * 0.1)),
+    //   3,
+    //   size.height
+    // );
   }
   
   // loop();
