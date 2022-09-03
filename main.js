@@ -59,7 +59,7 @@ function render(){
       );
     }
 
-    for(let i = 0; i < num; i++){
+    for(let i = 0; i < num + 1; i++){
       let radian = (angle + i) / 180 * Math.PI; //ラジアンに変換 i番目の角度の計算
   
       // fillRect(x, y, width, height)
