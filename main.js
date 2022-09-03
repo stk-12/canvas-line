@@ -40,21 +40,21 @@ function render(){
     // 経過時間
     let passedTime = new Date().getTime();
 
-    let angle = passedTime / 20; // １秒間に0.02増加する
+    let angle = passedTime / 1000; // １秒間に0.5増加する
 
     
     // 画面をリセット
     ctx.clearRect(0,0, canvas.width, canvas.width);
 
     for(let i = 0; i < num; i++){
-      let radian = (angle + i) / 180 * Math.PI; //ラジアンに変換 i番目の角度の計算
+      let radian = (angle * i) / 180 * Math.PI; //ラジアンに変換 i番目の角度の計算
   
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i,
-        (size.height * 0.25) + ((size.height * 0.5) * (Math.sin(radian * 3) * 0.1)),
+        (size.height * 0.375) + ((size.height * 0.5) * (Math.sin(radian * 3) * 0.25)),
         3,
-        size.height * 0.5
+        size.height * 0.25
       );
     }
     
