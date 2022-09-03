@@ -6,6 +6,13 @@ let size;
 let interval = 20; // 間隔
 let num; // 横に並ぶ数
 
+let mouse = {
+  x: window.innerWidth / 2,
+  y: window.innerHeight / 2
+}
+
+
+
 function init(){
   canvas = document.getElementById('canvas');
   ctx = canvas.getContext('2d');
@@ -40,8 +47,14 @@ function render(){
     // 経過時間
     let passedTime = new Date().getTime();
 
+    let distance = (Math.sqrt(Math.pow(mouse.x - size.width / 2, 2))) / (size.width * 0.5);
+
+    // console.log(distance);
+
     // let par = ((passedTime % 1000) / 999); // 1秒ごとに0〜1を繰り返す
-    let angle = passedTime / 20; // １秒間に0.02増加する
+    let angle = passedTime / 20 + (distance * 100); // １秒間に0.02増加する
+
+    
 
     
     // 画面をリセット
@@ -53,9 +66,9 @@ function render(){
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i,
-        (size.height * 0.5) + ((size.height * 0.5) * ((Math.sin(radian * 3) + Math.cos(radian)) * 0.1)),
-        3,
-        size.height
+        (size.height * (0.5 - distance / 2)) + ((size.height * 0.5) * ((Math.sin(radian * 3) + Math.cos(radian)) * 0.1)),
+        5 * distance + 3,
+        size.height * distance / 2 + 3
       );
     }
 
@@ -65,9 +78,9 @@ function render(){
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i - interval * 0.33333,
-        (size.height * 0.5) + ((size.height * 0.5) * ((Math.sin(radian * 2) + Math.cos(radian * 3)) * 0.15)),
-        3,
-        size.height
+        (size.height * 0.33333 - (distance / 2)) + ((size.height * 0.5) * ((Math.sin(radian * 2) + Math.cos(radian * 3)) * 0.15)),
+        5 * distance + 3,
+        size.height * distance / 2 + 3
       );
     }
 
@@ -77,9 +90,9 @@ function render(){
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i - interval * 0.66666,
-        (size.height * 0.5) + ((size.height * 0.5) * ((Math.sin(radian) + Math.sin(radian * 3)) * 0.2)),
-        3,
-        size.height
+        (size.height * 0.5 - (distance / 2)) + ((size.height * 0.5) * ((Math.sin(radian) + Math.sin(radian * 3)) * 0.2)),
+        5 * distance + 3,
+        size.height * distance / 2 + 3
       );
     }
     
@@ -89,7 +102,10 @@ function render(){
   }
 }
 
-window.addEventListener('load', ()=>{
+window.addEventListener('load', (e)=>{
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+
   init();
   render();
 });
@@ -98,3 +114,8 @@ window.addEventListener('resize', ()=>{
   init();
   render();
 });
+
+window.addEventListener('mousemove', (e)=>{
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+})
