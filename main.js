@@ -41,11 +41,16 @@ function render(){
   //     size.height
   //   );
   // }
+
+  // let previousTime = 0;
   
   loop();
   function loop() {
     // 経過時間
     let passedTime = new Date().getTime();
+
+    // let deltaTime = passedTime - previousTime;
+    // previousTime = passedTime;
 
     // let distance = (Math.sqrt(Math.pow(mouse.x - size.width / 2, 2))) / (size.width * 0.5);
     let distanceX = (Math.sqrt(Math.pow(mouse.x - size.width / 2, 2))) / (size.width * 0.5);
@@ -53,7 +58,8 @@ function render(){
 
 
     // let par = ((passedTime % 1000) / 999); // 1秒ごとに0〜1を繰り返す
-    let angle = passedTime / 20 + (distanceX * 100); // １秒間に0.02増加する
+    // let angle = passedTime / 20 + (distanceX * 100); // １秒間に0.02増加する
+    let angle = passedTime / 20; // １秒間に0.02増加する
 
     
 
@@ -103,10 +109,7 @@ function render(){
   }
 }
 
-window.addEventListener('load', (e)=>{
-  mouse.x = e.clientX;
-  mouse.y = e.clientY;
-
+window.addEventListener('load', ()=>{
   init();
   render();
 });
