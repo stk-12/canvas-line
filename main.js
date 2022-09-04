@@ -73,9 +73,9 @@ function render(){
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i,
-        (size.height * (0.5 - distanceY / 2)) + ((size.height * 0.5) * ((Math.sin(radian * 3) + Math.cos(radian)) * 0.1)),
+        (size.height * 0.4 - distanceY / 4) + ((size.height * 0.5) * ((Math.sin(radian * 3) + Math.cos(radian)) * 0.1)),
         5 * distanceX + 3,
-        size.height * distanceY / 2 + 3
+        size.height * distanceY / 4 + 3
       );
     }
 
@@ -85,9 +85,9 @@ function render(){
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i - interval * 0.33333,
-        (size.height * 0.33333 - (distanceY / 2)) + ((size.height * 0.5) * ((Math.sin(radian * 2) + Math.cos(radian * 3)) * 0.15)),
+        (size.height * 0.4 - distanceY / 4) + ((size.height * 0.5) * ((Math.sin(radian * 2) + Math.cos(radian * 3)) * 0.15)),
         5 * distanceX + 3,
-        size.height * distanceY / 2 + 3
+        size.height * distanceY / 4 + 3
       );
     }
 
@@ -97,9 +97,9 @@ function render(){
       // fillRect(x, y, width, height)
       ctx.fillRect(
         interval * i - interval * 0.66666,
-        (size.height * 0.5 - (distanceY / 2)) + ((size.height * 0.5) * ((Math.sin(radian) + Math.sin(radian * 3)) * 0.2)),
+        (size.height * 0.4 - distanceY / 4) + ((size.height * 0.5) * ((Math.sin(radian) + Math.sin(radian * 3)) * 0.2)),
         5 * distanceX + 3,
-        size.height * distanceY / 2 + 3
+        size.height * distanceY / 4 + 3
       );
     }
     
